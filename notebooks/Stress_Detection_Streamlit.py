@@ -13,12 +13,12 @@ with open(pkl_path, 'rb') as f:
 def predict(sentences):
     y_pred = stress_classifier.predict(sentences)
     return y_pred
+    
+# Add a header title
+st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention for Mental Wellbeing")
 
 # Create a text input for the user to enter a sentence
 sentence = st.text_input('Enter a sentence')
-
-# Add a header title
-st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention for Mental Wellbeing")
 
 # Make a prediction when the user clicks a button
 if st.button('Predict'):
