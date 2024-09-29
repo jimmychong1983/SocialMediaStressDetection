@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 # Load the classifier from the pickle file
-with open('Stress_Detection_App.pkl', 'rb') as f:
+with open('Streamlit/Stress_Detection_App.pkl', 'rb') as f:
     stress_classifier = pickle.load(f)
 
 # Define a function to make predictions
