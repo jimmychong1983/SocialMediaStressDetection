@@ -22,7 +22,7 @@ sentence = st.text_input('Enter a sentence')
 
 # Add a clear button beside the predict button
 if st.button('Clear'):
-    sentence = ''
+    text_input = ''
 
 # Make a prediction when the user clicks a button
 if st.button('Predict'):
