@@ -33,6 +33,3 @@ if st.button('Predict'):
         st.write("The text does not indicate high stress levels.")
     else:
         st.write("The text indicates high stress levels.")
-
-# Set the focus to the text input by default
-st.markdown("<script>document.querySelector('input[type=text]').focus();</script>", unsafe_allow_html=True)
