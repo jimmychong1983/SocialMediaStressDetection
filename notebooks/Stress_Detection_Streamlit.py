@@ -3,7 +3,7 @@ import pickle
 from pathlib import Path
 
 # Get the path to the PKL file relative to the current script
-pkl_path = Path(__file__).parents[1] / 'Stress_Detection_App.pkl'
+pkl_path = Path(__file__).parents[1] / 'notebooks/Stress_Detection_App.pkl'
 
 # Load the classifier from the PKL file
 with open(pkl_path, 'rb') as f:
