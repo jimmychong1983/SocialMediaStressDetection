@@ -17,6 +17,9 @@ def predict(sentences):
 # Create a text input for the user to enter a sentence
 sentence = st.text_input('Enter a sentence')
 
+# Add a header title
+st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention for Mental Wellbeing")
+
 # Make a prediction when the user clicks a button
 if st.button('Predict'):
     prediction = predict([sentence])[0]
