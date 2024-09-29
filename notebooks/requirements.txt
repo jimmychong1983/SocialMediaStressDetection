@@ -1,4 +1,4 @@
-SocialMediaStressDetection/notebooks/
+notebooks/
 ├── requirements.txt
 └── Stress_Detection_Streamlit.py
 
