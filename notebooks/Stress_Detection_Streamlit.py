@@ -22,15 +22,3 @@ if st.button('Predict'):
         st.write("The text does not indicate high stress levels.")
     else:
         st.write("The text indicates high stress levels.")
-
-# Define the main function
-def main():
-    # Call the prediction function
-    prediction = predict([sentence])
-
-    # Display the prediction result
-    st.write("Prediction:", prediction)
-
-# Run the main function
-if __name__ == '__main__':
-    main()
