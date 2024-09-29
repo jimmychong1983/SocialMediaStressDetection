@@ -20,6 +20,10 @@ st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention fo
 # Create a text input for the user to enter a sentence
 sentence = st.text_input('Enter a sentence')
 
+# Add a clear button beside the predict button
+if st.button('Clear'):
+    sentence = ''
+
 # Make a prediction when the user clicks a button
 if st.button('Predict'):
     prediction = predict([sentence])[0]
@@ -29,3 +33,6 @@ if st.button('Predict'):
         st.write("The text does not indicate high stress levels.")
     else:
         st.write("The text indicates high stress levels.")
+
+# Set the focus to the text input by default
+st.markdown("<script>document.querySelector('input[type=text]').focus();</script>", unsafe_allow_html=True)
