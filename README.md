@@ -12,14 +12,16 @@ Installation:
 1) Python and pip:
  - Download and install Python from the official website: https://www.python.org/downloads/
  - Verify pip installation using  
-
-	python -m ensurepip --upgrade			
+```python
+python -m ensurepip --upgrade
+```	
  
 2) Dependencies:
 
  - Open a terminal and navigate to your project directory (example).
-
-	cd C:\Users\jimmy\OneDrive\Desktop\My Project\SocialMediaStressDetection\notebooks
+```python
+cd C:\Users\jimmy\OneDrive\Desktop\My Project\SocialMediaStressDetection\notebooks
+```	
  
  - Install the required libraries:
 
