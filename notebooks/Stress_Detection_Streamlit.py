@@ -36,8 +36,6 @@ def predict(sentence, model_type):
         sequence = tokenizer.texts_to_sequences([sentence])  
         padded_sequence = pad_sequences(sequence, maxlen=100)
 
-        padded_sequence = np.array(padded_sequence)
-
         # Make prediction using the LSTM model
         prediction = lstm_classifier.predict(padded_sequence)
 
