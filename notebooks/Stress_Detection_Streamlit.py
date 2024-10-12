@@ -34,7 +34,7 @@ def predict(sentence, model_type):
 
     elif model_type == 'LSTM':
         # Tokenize and pad the sentence
-        sentence = str(sentence)
+        sentence = sentence.decode('utf-8')
             
         sequence = tokenizer.texts_to_sequences([sentence])  
         padded_sequence = pad_sequences(sequence, maxlen=100)
@@ -59,6 +59,11 @@ sentence = st.text_input('Enter a sentence')
 
 # Make a prediction when the user clicks a button
 if st.button('Predict'):    
+    a = type(sentence)
+    b = sentence.encoding
+    st.write(a)
+    st.write(b)
+    
     if sentence:  # Ensure the sentence is not empty
         prediction = predict(sentence, model_type)
         
