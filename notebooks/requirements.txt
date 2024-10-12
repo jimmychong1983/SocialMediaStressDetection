@@ -88,7 +88,6 @@ streamlit==1.38.0
 tenacity==8.5.0
 tensorboard==2.17.1
 tensorboard-data-server==0.7.2
-tensorflow==2.17.0
 tensorflow-intel==2.17.0
 termcolor==2.5.0
 thinc==8.3.2
@@ -108,4 +107,3 @@ weasel==0.4.1
 Werkzeug==3.0.4
 wheel==0.44.0
 wrapt==1.16.0
-tensorflow==2.17.0
