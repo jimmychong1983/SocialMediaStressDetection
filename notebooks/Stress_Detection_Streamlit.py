@@ -58,9 +58,7 @@ st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention fo
 sentence = st.text_input('Enter a sentence')
 
 # Make a prediction when the user clicks a button
-if st.button('Predict'):    
-    a = type(sentence)
-    b = sentence.encoding
+if st.button('Predict'):
     st.write(a)
     st.write(b)
     
