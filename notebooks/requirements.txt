@@ -5,7 +5,8 @@ anyio==4.6.0
 astunparse==1.6.3
 attrs==24.2.0
 blinker==1.8.2
-blis==1.0.1
+# Remove or adjust blis if not essential
+# blis==1.0.1
 cachetools==5.5.0
 catalogue==2.0.10
 certifi==2024.8.30
@@ -49,7 +50,8 @@ ml-dtypes==0.4.1
 murmurhash==1.0.10
 namex==0.0.8
 narwhals==1.8.4
-numpy>=2.0.0,<3.0.0
+# Updated numpy version to satisfy dependencies
+numpy>=1.26.0
 openai==1.51.2
 opt_einsum==3.4.0
 optree==0.13.0
