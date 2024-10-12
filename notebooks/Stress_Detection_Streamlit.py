@@ -8,7 +8,8 @@ import json
 # Load tokenizer from a saved JSON file
 with open('notebooks/tokenizer.json', 'r') as f:
     tokenizer_data = json.load(f)
-    tokenizer = tokenizer_from_json(tokenizer_data)
+    
+tokenizer = tokenizer_from_json(tokenizer_data)
     
 # Get the path to the PKL files relative to the current script
 linear_svc_path = Path(__file__).parents[1] / 'notebooks/Stress_Detection_LinearSVC_App.pkl'
