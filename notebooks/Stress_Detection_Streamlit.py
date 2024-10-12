@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import json
 
 # Load tokenizer from a saved JSON file
-with open('tokenizer.json', 'r') as f:
+with open('notebooks/tokenizer.json', 'r') as f:
     tokenizer_data = json.load(f)
     tokenizer = tokenizer_from_json(tokenizer_data)
     
