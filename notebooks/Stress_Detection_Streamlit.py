@@ -4,6 +4,7 @@ from pathlib import Path
 from tensorflow.keras.preprocessing.text import tokenizer_from_json
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import json
+import numpy as np
 
 # Load tokenizer from a saved JSON file
 with open('notebooks/tokenizer.json', 'r') as f:
