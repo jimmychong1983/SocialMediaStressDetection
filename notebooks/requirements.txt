@@ -5,8 +5,7 @@ anyio==4.6.0
 astunparse==1.6.3
 attrs==24.2.0
 blinker==1.8.2
-# Remove or downgrade thinc if possible
-thinc==8.0.0
+blis==1.0.1
 cachetools==5.5.0
 catalogue==2.0.10
 certifi==2024.8.30
@@ -50,8 +49,7 @@ ml-dtypes==0.4.1
 murmurhash==1.0.10
 namex==0.0.8
 narwhals==1.8.4
-# Updated numpy version to satisfy dependencies
-numpy>=1.26.0
+numpy==1.26.4
 openai==1.51.2
 opt_einsum==3.4.0
 optree==0.13.0
@@ -91,8 +89,9 @@ tenacity==8.5.0
 tensorboard==2.17.1
 tensorboard-data-server==0.7.2
 tensorflow==2.17.0
+tensorflow-intel==2.17.0
 termcolor==2.5.0
-thinc==8.0.0
+thinc==8.3.2
 threadpoolctl==3.5.0
 tokenizers==0.20.1
 toml==0.10.2
