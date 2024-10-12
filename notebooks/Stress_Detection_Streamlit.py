@@ -1,7 +1,15 @@
 import streamlit as st
 import pickle
 from pathlib import Path
+from tensorflow.keras.preprocessing.text import tokenizer_from_json
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import json
 
+# Load tokenizer from a saved JSON file
+with open('tokenizer.json', 'r') as f:
+    tokenizer_data = json.load(f)
+    tokenizer = tokenizer_from_json(tokenizer_data)
+    
 # Get the path to the PKL files relative to the current script
 linear_svc_path = Path(__file__).parents[1] / 'notebooks/Stress_Detection_LinearSVC_App.pkl'
 lstm_path = Path(__file__).parents[1] / 'notebooks/Stress_Detection_LSTM_App.pkl'
@@ -9,36 +17,49 @@ lstm_path = Path(__file__).parents[1] / 'notebooks/Stress_Detection_LSTM_App.pkl
 # Load the classifiers from the PKL files
 with open(linear_svc_path, 'rb') as f:
     linear_svc_classifier = pickle.load(f)
+
 with open(lstm_path, 'rb') as f:
     lstm_classifier = pickle.load(f)
 
-# Define a function to make predictions based on the selected model
-def predict(sentences, model_type):
+# Define a function to make predictions
+def predict(sentence, model_type):
     if model_type == 'LinearSVC':
         classifier = linear_svc_classifier
+        y_pred = classifier.predict(sentence)  
+        return y_pred[0]
+
     elif model_type == 'LSTM':
-        classifier = lstm_classifier
+        # Tokenize and pad the sentence
+        sequence = tokenizer.texts_to_sequences([sentence])  
+        padded_sequence = pad_sequences(sequence, maxlen=100)
+
+        # Make prediction using the LSTM model
+        prediction = lstm_classifier.predict(padded_sequence)
+
+        # Convert prediction to a binary outcome (0 or 1)
+        stress_level = (prediction > 0.5).astype(int)[0][0]
+        return stress_level
     else:
         raise ValueError("Invalid model type")
-
-    y_pred = classifier.predict(sentences)
-    return y_pred
+    
+# Create a dropdown menu to select the model type
+model_type = st.selectbox("Select Model Type", ["LinearSVC", "LSTM"])
 
 # Add a header title
 st.title("Harnessing NLP to Detect Stress in Social Media: Early Intervention for Mental Wellbeing")
-
-# Create a dropdown menu to select the model type
-model_type = st.selectbox("Select Model Type", ["LinearSVC", "LSTM"])
 
 # Create a text input for the user to enter a sentence
 sentence = st.text_input('Enter a sentence')
 
 # Make a prediction when the user clicks a button
 if st.button('Predict'):
-    prediction = predict([sentence], model_type)[0]
-
-    # Display the prediction result with appropriate messaging
-    if prediction == 0:
-        st.write("The text does not indicate high stress levels.")
+    if sentence:  # Ensure the sentence is not empty
+        prediction = predict(sentence, model_type)
+        
+        # Display the prediction result with appropriate messaging
+        if prediction == 0:
+            st.write("The text does not indicate high stress levels.")
+        else:
+            st.write("The text indicates high stress levels.")
     else:
-        st.write("The text indicates high stress levels.")
+        st.write("Please enter a sentence.")
