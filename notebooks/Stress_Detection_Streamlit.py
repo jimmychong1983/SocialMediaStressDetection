@@ -34,8 +34,7 @@ def predict(sentence, model_type):
 
     elif model_type == 'LSTM':
         # Tokenize and pad the sentence
-        if type(sentence) != str:
-            sentence = sentence.decode('utf-8')
+        sentence = str(sentence)
             
         sequence = tokenizer.texts_to_sequences([sentence])  
         padded_sequence = pad_sequences(sequence, maxlen=100)
