@@ -28,13 +28,15 @@ with open(lstm_path, 'rb') as f:
 def predict(sentence, model_type):
     if model_type == 'LinearSVC':
         classifier = linear_svc_classifier
-        y_pred = classifier.predict(sentence)  
+        y_pred = classifier.predict([sentence])  
         return y_pred[0]
 
     elif model_type == 'LSTM':
         # Tokenize and pad the sentence
         sequence = tokenizer.texts_to_sequences([sentence])  
         padded_sequence = pad_sequences(sequence, maxlen=100)
+
+        padded_sequence = np.array(padded_sequence)
 
         # Make prediction using the LSTM model
         prediction = lstm_classifier.predict(padded_sequence)
