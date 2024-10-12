@@ -5,8 +5,8 @@ anyio==4.6.0
 astunparse==1.6.3
 attrs==24.2.0
 blinker==1.8.2
-# Remove or adjust blis if not essential
-# blis==1.0.1
+# Remove or downgrade thinc if possible
+thinc==8.0.0
 cachetools==5.5.0
 catalogue==2.0.10
 certifi==2024.8.30
@@ -92,7 +92,7 @@ tensorboard==2.17.1
 tensorboard-data-server==0.7.2
 tensorflow==2.17.0
 termcolor==2.5.0
-thinc==8.3.2
+thinc==8.0.0
 threadpoolctl==3.5.0
 tokenizers==0.20.1
 toml==0.10.2
